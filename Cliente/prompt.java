@@ -8,7 +8,7 @@ public class prompt {
     {
         try
         {
-            Part c = (Part) Naming.lookup("//127.0.0.1:1020/CalculatorService");
+            Part c = (Part) Naming.lookup("//127.0.0.1:1020/part");
         }
         catch (Exception e)
         {

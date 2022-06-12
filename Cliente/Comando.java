@@ -4,7 +4,7 @@ public class Comando {
 	
 	/*Faz o cliente se conectar a outro servidor e muda o reposit´orio corrente. Este comando
 	recebe o nome de um reposit´orio e obt´em do servi¸co de nomes uma referˆencia para esse
-	reposit´orio, que passa a ser o reposit´orio corrente.*/
+	repositorio, que passa a ser o reposit´orio corrente.*/
 	public void bind() {
 		
 	}
@@ -12,8 +12,8 @@ public class Comando {
 	public void listp() {
 		
 	}
-	/*Busca uma pe¸ca por c´odigo. A busca ´e efetuada no reposit´orio corrente. Se encontrada,
-	a pe¸ca passa a ser a nova pe¸ca corrente.*/
+	/*Busca uma pe¸ca por codigo. A busca e efetuada no repositorio corrente. Se encontrada,
+	a peca passa a ser a nova pe¸ca corrente.*/
 	public void getp() {
 		
 	}
@@ -29,13 +29,13 @@ public class Comando {
 	public void addsubpart() {
 		
 	}
-	/*Adiciona uma pe¸ca ao reposit´orio corrente. A lista de sub-pe¸cas corrente ´e usada como
-lista de subcomponentes diretos da nova pe¸ca. (E s´o para isto que existe a lista de ´
+	/*Adiciona uma pe¸ca ao repositorio corrente. A lista de sub-pe¸cas corrente e usada como
+lista de subcomponentes diretos da nova peca. (E so para isto que existe a lista de 
 sub-pe¸cas corrente.)*/
 	public void addp() {
 		
 	}
-	/*Encerra a execu¸c˜ao do cliente*/
+	/*Encerra a execucao do cliente*/
 	public void quit() {
 		
 	}

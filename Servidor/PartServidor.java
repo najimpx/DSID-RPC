@@ -1,32 +1,30 @@
 package Servidor;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.RMISecurityManager;
+import java.rmi.Remote;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PartServidor implements PartRepository {
-	// Cada servidor implementara um objeto PartRepository
-    public void insertPart(Part a) throws RemoteException
-    {
-        return;
-    }
-    public List<Part> obterParts() throws RemoteException{
-    	List<Part> Parts = new ArrayList<Part>();
-    	return Parts;
-    }
-    public Part RecoverPart(int cod) throws RemoteException{
-    	Part p = new Peca();
-    	return p;	
-    }
+import Interfaces.Part;
+
+public class PartServidor{
     		
-    PartServidor()
+    public PartServidor()
     {
     	
         try
         {
+        	
+        	
+        	System.setProperty("java.rmi.server.hostname", "127.0.0.1");
+        	LocateRegistry.createRegistry(1099);
+            
             Part c = new Peca();
             
-            Naming.rebind("RMI://127.0.0.1:1020/parts", c);
+            Naming.bind("partServidor",(Remote) c);
         }
         catch (Exception e)
         {

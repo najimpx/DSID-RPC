@@ -3,6 +3,8 @@ package Servidor;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
+import Interfaces.Part;
+
 import java.util.ArrayList;
 
 //Cada peca sera representada por um objeto cuja interface e Part.
@@ -17,22 +19,37 @@ public class Peca extends UnicastRemoteObject implements Part
     {
         super();
     }
-	public void setCodigo(int cod) throws RemoteException{
-		codigo = cod;
-		return;
+	public int getCodigo() throws RemoteException{
+		return this.codigo;
 	}
-	public void setNome(String pecaNome) throws RemoteException {
-		nome = pecaNome;
-		return;
+	public String getNome() throws RemoteException {
+		return this.nome;
 	}
-	public void setDescricao(String desc) throws RemoteException {
-		descricao = desc;
-		return;
+	public String getDescricao() throws RemoteException {
+		return this.descricao;
 	}
-	public void setSubcomponente(List<subcomponente> sub) throws RemoteException{
-		ex  = sub;
-		return;
+	public List<subcomponente> getSubcomponente() throws RemoteException{
+		return this.ex;
 	}
+    public void insertPart(Part a) throws RemoteException{
+    	
+    }
+    public void deletePart(Part a) throws RemoteException{
+    	
+    }
 
+    public Part RecoverPart(int cod) throws RemoteException{
+    	return null;
+    }
+    
+    public List<Part> obterParts() throws RemoteException{
+    	return null;
+
+    }
+    //busca se ha local para conectar caso contrario vira servidor pai
+    public Part conectPart() throws RemoteException{
+    	return null;
+
+    }
 
 }

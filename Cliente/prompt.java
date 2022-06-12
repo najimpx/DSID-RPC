@@ -1,7 +1,9 @@
 package Cliente;
 import Servidor.PartServidor;
-import Servidor.Part;
+
 import java.rmi.Naming;
+
+import Interfaces.Part;
 
 public class prompt {
     public static void main(String[] args)

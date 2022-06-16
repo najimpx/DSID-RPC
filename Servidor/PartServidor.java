@@ -22,9 +22,12 @@ public class PartServidor{
         	System.setProperty("java.rmi.server.hostname", "127.0.0.1");
         	LocateRegistry.createRegistry(1099);
             
-            Part c = new Peca();
+            Peca c = new Peca();
             
             Naming.bind("partServidor",(Remote) c);
+         
+            
+            
         }
         catch (Exception e)
         {

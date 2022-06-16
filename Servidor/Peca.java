@@ -14,7 +14,7 @@ public class Peca extends UnicastRemoteObject implements Part
 	String nome;
 	String descricao;
 	List<subcomponente> ex = new ArrayList<subcomponente>();
-
+	PartRepository rep = new PartRepository();
     protected Peca() throws RemoteException
     {
         super();
@@ -27,6 +27,9 @@ public class Peca extends UnicastRemoteObject implements Part
 	}
 	public String getDescricao() throws RemoteException {
 		return this.descricao;
+	}
+	public PartRepository getRepositorio() throws RemoteException {
+		return this.rep;
 	}
 	public List<subcomponente> getSubcomponente() throws RemoteException{
 		return this.ex;

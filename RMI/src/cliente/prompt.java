@@ -52,13 +52,13 @@ public class prompt {
 	}
 	/*Adiciona a lista de sub-pecas corrente n unidades da peca corrente*/
 	public void addsubpart(Repositorio rep, int quant) throws RemoteException{
-		
+		rep.addSubPart();
 	}
 	/*Adiciona uma peca ao repositorio corrente. A lista de sub-pecas corrente e usada como
 lista de subcomponentes diretos da nova peca. (E so para isto que existe a lista de 
 sub-pecas corrente.)*/
-	public void addp(Repositorio rep, String nomePeca) throws RemoteException{
-		rep.addp(nomePeca); 
+	public void addp(Repositorio rep, String nomePeca, String descricao) throws RemoteException{
+		rep.addp(nomePeca,descricao); 
 	}
 	/*Encerra a execucao do cliente*/
 	public void quit() {

@@ -73,7 +73,9 @@ public class main {
 			        case 'd':
 			        	System.out.println("Insira o nome da peca a ser adicionada: ");
 			        	String pecaAdd = scan.nextLine(); 
-			        	promp.addp(rep, pecaAdd);
+			        	System.out.println("Insira a descricao da peca a ser adicionada: ");
+			        	String pecaDesc = scan.nextLine(); 
+			        	promp.addp(rep, pecaAdd, pecaDesc);
 			        	break;
 			        	case 'q':
 			        	promp.quit();

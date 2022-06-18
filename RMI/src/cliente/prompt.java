@@ -30,9 +30,8 @@ public class prompt {
 	}
 	/*Busca uma peca por codigo. A busca e efetuada no repositorio corrente. Se encontrada,
 	a peca passa a ser a nova peca corrente.*/
-	public Peca getp(int codigo, Repositorio rep) throws RemoteException{
+	public void getp(int codigo, Repositorio rep) throws RemoteException{
 		rep.getp(codigo);
-		return null;
 	}
 	/*Mostra atributos da peca corrente.*/
 	public void showp(Repositorio rep) throws RemoteException {

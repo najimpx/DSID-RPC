@@ -51,13 +51,20 @@ public class Peca extends UnicastRemoteObject implements Part {
 
 
     @Override
-    public boolean addSubPart(String nome) throws RemoteException {
-	if(verificaNome(nome)) {
+    public boolean addSubPart(int n) throws RemoteException {
+	for (int i = 0; i < n; i++) {
+	    String nome = this.nome+"/"+this.quant;
+	    String descricao = this.descricao;
+	    Peca p = new Peca();
+	    if(!p.criaPart(nome, descricao)) {
+		this.apagaLista();
+		return false;
+	    }
 	    this.subComp.add(nome);
-	    this.quant++;
-	    return true;
+	    quant++;
+	    
 	}
-	return false;
+	return true;
     }
 
 

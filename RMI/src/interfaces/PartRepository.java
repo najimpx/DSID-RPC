@@ -13,7 +13,7 @@ public interface PartRepository extends Remote{
     //retorna o nome da lista de repositorios
     public String[] listpart()throws RemoteException;
     //adiciona lista de sub-parts na part corrente
-    public boolean addSubPart(String[] subsParts)throws RemoteException;
+    public boolean addSubPart(int subsParts)throws RemoteException;
     //busca part por codigo e se encontrar muda a part corrente para essa part(se nao retorna null
     public String getp(int codigo)throws RemoteException;
     //adiciona uma part no repositorio

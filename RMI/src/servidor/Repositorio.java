@@ -36,19 +36,15 @@ public class Repositorio extends UnicastRemoteObject implements PartRepository {
     }
 
     @Override
-    public boolean addSubPart(String[] subsParts) throws RemoteException {
-	
+    public boolean addSubPart(int subsParts)throws RemoteException {
 	try {
-	    Peca p = (Peca)Naming.lookup(PartRepository.end.concat(this.partCorrente));
-	    for (int i = 0; i < subsParts.length; i++) {
-		p.addSubPart(subsParts[i]);
-	    }
-	    return true;
-	    	
+	    Part p = (Part)Naming.lookup(PartRepository.end.concat(this.partCorrente));
+	    return p.addSubPart(subsParts);
 	} catch (MalformedURLException | RemoteException | NotBoundException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
+	
 	return false;
     }
 
@@ -81,7 +77,7 @@ public class Repositorio extends UnicastRemoteObject implements PartRepository {
     public String[] showp() throws RemoteException {
 	String[] rtn = new String[4];
 	try {
-	    Peca p = (Peca)Naming.lookup(PartRepository.end.concat(this.partCorrente));
+	    Part p = (Part)Naming.lookup(PartRepository.end.concat(this.partCorrente));
 	    rtn[0]=p.getNome();
 	    rtn[1]=p.getDescricao();
 	    rtn[2]=""+p.getCodigo();
@@ -100,7 +96,7 @@ public class Repositorio extends UnicastRemoteObject implements PartRepository {
     @Override
     public boolean ClearList() throws RemoteException {
 	try {
-	    Peca p = (Peca)Naming.lookup(PartRepository.end.concat(this.partCorrente));
+	    Part p = (Part)Naming.lookup(PartRepository.end.concat(this.partCorrente));
 	    p.apagaLista();
 	} catch (MalformedURLException | RemoteException | NotBoundException e) {
 	    return false;

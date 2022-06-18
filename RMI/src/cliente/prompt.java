@@ -23,8 +23,10 @@ public class prompt {
 		return null;
 	}
 	/*Lista as pecas do repositorio corrente*/
-	public void listp(Peca p) throws RemoteException{
-		
+	public void listp(Repositorio rep) throws RemoteException{
+		for(int i = 0; i<rep.listpart().length;i++) {
+			System.out.println(rep.listpart()[i]);
+		}
 	}
 	/*Busca uma peca por codigo. A busca e efetuada no repositorio corrente. Se encontrada,
 	a peca passa a ser a nova peca corrente.*/

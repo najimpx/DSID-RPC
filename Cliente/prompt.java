@@ -14,7 +14,7 @@ public class prompt {
     {
         try
         {
-        	Peca corrente = (Peca) Naming.lookup("//127.0.0.1:1020/part");
+        	Peca corrente = (Peca) Naming.lookup("rmi://127.0.0.1:1099/filho1");
 
             
             /*Provavelmente o mais facil e escrever um cliente com uma interface tipo linha de comando.

@@ -48,17 +48,18 @@ public class prompt {
 		System.out.println("Quantidade de pecas da peca corrente: "+atributos[3]);
 	}
 	/* Esvazia a lista de sub-pecas corrente*/
-	public void clearlist (Peca corrente) throws RemoteException{
+	public void clearlist (Repositorio rep) throws RemoteException{
+		rep.ClearList();
 	}
 	/*Adiciona a lista de sub-pecas corrente n unidades da peca corrente*/
-	public void addsubpart(Peca corrente, int quant) throws RemoteException{
-
-	}
-	/*Adiciona uma pe¸ca ao repositorio corrente. A lista de sub-pe¸cas corrente e usada como
-lista de subcomponentes diretos da nova peca. (E so para isto que existe a lista de 
-sub-pe¸cas corrente.)*/
-	public void addp() {
+	public void addsubpart(Repositorio rep, int quant) throws RemoteException{
 		
+	}
+	/*Adiciona uma peca ao repositorio corrente. A lista de sub-pecas corrente e usada como
+lista de subcomponentes diretos da nova peca. (E so para isto que existe a lista de 
+sub-pecas corrente.)*/
+	public void addp(Repositorio rep, String nomePeca) throws RemoteException{
+		rep.addp(nomePeca); 
 	}
 	/*Encerra a execucao do cliente*/
 	public void quit() {

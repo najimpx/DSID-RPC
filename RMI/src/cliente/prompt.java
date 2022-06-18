@@ -45,6 +45,10 @@ public class prompt {
 		System.out.println("Codigo da peca corrente: "+atributos[2]);
 		System.out.println("");
 		System.out.println("Quantidade de pecas da peca corrente: "+atributos[3]);
+		for(int i = 4; i<atributos.length;i++) {
+			System.out.println("Nome da subpeca da peca corrente: "+atributos[i]);
+			System.out.println("");
+		}
 	}
 	/* Esvazia a lista de sub-pecas corrente*/
 	public void clearlist (Repositorio rep) throws RemoteException{

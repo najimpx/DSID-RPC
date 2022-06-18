@@ -52,7 +52,7 @@ public class prompt {
 	}
 	/*Adiciona a lista de sub-pecas corrente n unidades da peca corrente*/
 	public void addsubpart(Repositorio rep, int quant) throws RemoteException{
-		rep.addSubPart();
+		rep.addSubPart(quant);
 	}
 	/*Adiciona uma peca ao repositorio corrente. A lista de sub-pecas corrente e usada como
 lista de subcomponentes diretos da nova peca. (E so para isto que existe a lista de 

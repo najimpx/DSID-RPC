@@ -30,11 +30,22 @@ public class prompt {
 	}
 	/*Busca uma peca por codigo. A busca e efetuada no repositorio corrente. Se encontrada,
 	a peca passa a ser a nova peca corrente.*/
-	public Peca getp(int codigo, Peca corrente) throws RemoteException{
+	public Peca getp(int codigo, Repositorio rep) throws RemoteException{
+		rep.getp(codigo);
 		return null;
 	}
 	/*Mostra atributos da peca corrente.*/
-	public void showp(Peca corrente) throws RemoteException {
+	public void showp(Repositorio rep) throws RemoteException {
+		System.out.println("-----------Atributos da pessa corrente--------------------------");
+		System.out.println("");
+		String[] atributos = rep.showp();
+		System.out.println("Nome da peca corrente: "+atributos[0]);
+		System.out.println("");
+		System.out.println("Descricao da peca corrente: "+atributos[1]);
+		System.out.println("");
+		System.out.println("Codigo da peca corrente: "+atributos[2]);
+		System.out.println("");
+		System.out.println("Quantidade de pecas da peca corrente: "+atributos[3]);
 	}
 	/* Esvazia a lista de sub-pecas corrente*/
 	public void clearlist (Peca corrente) throws RemoteException{

@@ -23,7 +23,7 @@ public class main {
 	    	System.out.println("");
 	    	System.out.println("-----------------------------Lista de comandos----------------------------------------");
 	    	System.out.println("--------------------------------------------------------------------------------------");
-	    	System.out.println("b (se conecta a outro servidor e muda o repositorio corrente)");
+	    	System.out.println("b (se conecta a outro servidor com nome inserido e muda o repositorio corrente)");
 	    	System.out.println("");
 	    	System.out.println("l (Lista as pecas do repositorio corrente)");
 	    	System.out.println("");
@@ -37,31 +37,49 @@ public class main {
 	    	System.out.println("");
 	    	System.out.println("d (Adiciona uma peca ao repositorio corrente)");
 	    	System.out.println("");
-	    	System.out.println("q");
-	    	System.out.println("Encerra a execucao do cliente");
+	    	System.out.println("q (Encerra a execucao do cliente)");
+	    	System.out.println("");
+	    	System.out.println("--------------------------------------------------------------------------------------");
 	        char comando = scan.next().charAt(0); 
+	        System.out.println("");
 	        boolean loop = true;
 	        while(loop) {
 		        switch(comando) {
 		        	case 'b':
+		        		System.out.println("Insira o nome do servidor:");
+		        		String nomeServidor = scan.nextLine(); 
+		        		promp.bind(nomeServidor);
 		        		break;
 		        	case 'l':
+		        		promp.listp(rep);
 		        		break;
 		        	case 's':
+		        		promp.showp(rep);
 		        		break;
 		        	case 'g':
+		        		System.out.println("Insira o codigo da peca:");
+		        		int cod = scan.nextInt();
+		        		promp.getp(cod, rep);
 		        		break;
 		        	case 'c':
+		        		promp.clearlist(rep);
+		        		System.out.println("Lista esvaziada ");
 		        		break;
 		        	case 'a':
+		        		System.out.println("Insira a quantidade da peca:");
+		        		int quant = scan.nextInt();
+		        		promp.addsubpart(rep, quant);
 		        		break;
 		        	case 'd':
+		        		System.out.println("Insira o nome da peca a ser adicionada: ");
+		        		String pecaAdd = scan.nextLine(); 
+		        		promp.addp(rep, pecaAdd);
 		        		break;
 		        	case 'q':
 		        		promp.quit();
 		        		break;
 		        	default:
-		        		System.out.println("comando invalido");
+		        		System.out.println("COMANDO INVALIDO");
 		        }
 	        }
 	    }

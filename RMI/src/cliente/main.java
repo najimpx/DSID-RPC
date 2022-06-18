@@ -9,7 +9,15 @@ import servidor.Repositorio;
 
 import java.util.Scanner;
 
+
+
 public class main {
+
+	//string hash
+	int StringHash(String nome) {
+		return nome.hashCode();
+	}
+	
     public static void main(String[] args)
     {
     	System.out.println("Envie o nome da peca");

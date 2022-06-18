@@ -54,39 +54,27 @@ public class Repositorio extends UnicastRemoteObject implements PartRepository {
 
     @Override
     public String getp(int codigo) throws RemoteException {
-	String[] rep;
 	
-	try {
-	    rep= Naming.list(this.partCorrente);
-	} catch (RemoteException | MalformedURLException e) {
-	    return null;
+	for (int i = 0; i < this.parts.size(); i++) {
+	    if(this.parts.get(i).getCodigo()==codigo) {
+		this.partCorrente=this.parts.get(i).getNome();
+		return this.partCorrente;
+	    }
 	}
-	int aux=0;
-	for (int j = 0; j < rep.length; j++) {
-	    if(rep[j].hashCode() == codigo) {
-		aux=j;
-		break;
-	    }
-		
-	    if(j == rep.length-1)
-		return null;
-	    }
-	
 	
 
-	return rep[aux];
+	return null;
     }
 
     @Override
-    public boolean addp(String nome) throws RemoteException {
-	Peca p;
-	try {
-	    p = (Peca)Naming.lookup(PartRepository.end.concat(nome));
-	} catch (MalformedURLException | RemoteException | NotBoundException e) {
-	    return false;
+    public boolean addp(String nome, String descricao)throws RemoteException {
+	Part p = (Part) new Peca();
+	if(p.criaPart(nome, descricao)) {
+	    this.parts.add(p);
+	    return true;
 	}
-	this.parts.add(p);
-	return true;
+	
+	return false;
     }
 
     @Override

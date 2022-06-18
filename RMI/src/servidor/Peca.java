@@ -3,6 +3,7 @@ package servidor;
 import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.LinkedList;
@@ -29,18 +30,21 @@ public class Peca extends UnicastRemoteObject implements Part {
     }
 
     
-    public void criaPart(String nome, String descricao) throws RemoteException {
+    public boolean criaPart(String nome, String descricao) throws RemoteException {
 	try {
 	    Naming.bind(nome, this);
+	    this.codigo = nome.concat(descricao).hashCode();
+	    this.nome = nome;
+	    this.descricao = descricao;
+	    this.subComp = new LinkedList<>();
+	    this.quant = 0;
+	    return true;
 	} catch (MalformedURLException | RemoteException | AlreadyBoundException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	this.codigo = nome.concat(descricao).hashCode();
-	this.nome = nome;
-	this.descricao = descricao;
-	this.subComp = new LinkedList<>();
-	this.quant = 0;
+
+	return false;
     }
 
 
@@ -119,7 +123,15 @@ public class Peca extends UnicastRemoteObject implements Part {
 
     @Override
     public void apagaLista() throws RemoteException {
+	for (int i = 0; i < this.subComp.size(); i++) {
+	    try {
+		Naming.unbind(this.subComp.get(i));
+	    } catch (RemoteException | MalformedURLException | NotBoundException e) {
+
+	    }
+	}
 	this.subComp.clear();
+	this.quant=0;
 	
     }
 

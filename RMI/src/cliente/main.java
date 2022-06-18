@@ -19,6 +19,7 @@ public class main {
 	    {
 	    	
 	    	Repositorio rep = (Repositorio) Naming.lookup("rmi://127.0.0.1:1099/"+nomePeca);
+	    	prompt promp = new prompt();
 	    	System.out.println("");
 	    	System.out.println("-----------------------------Lista de comandos----------------------------------------");
 	    	System.out.println("--------------------------------------------------------------------------------------");
@@ -39,9 +40,30 @@ public class main {
 	    	System.out.println("q");
 	    	System.out.println("Encerra a execucao do cliente");
 	        char comando = scan.next().charAt(0); 
-	        
-	        
-	    	
+	        boolean loop = true;
+	        while(loop) {
+		        switch(comando) {
+		        	case 'b':
+		        		break;
+		        	case 'l':
+		        		break;
+		        	case 's':
+		        		break;
+		        	case 'g':
+		        		break;
+		        	case 'c':
+		        		break;
+		        	case 'a':
+		        		break;
+		        	case 'd':
+		        		break;
+		        	case 'q':
+		        		promp.quit();
+		        		break;
+		        	default:
+		        		System.out.println("comando invalido");
+		        }
+	        }
 	    }
 	    catch (Exception e)
 	    {
